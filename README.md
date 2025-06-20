@@ -1,97 +1,73 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 🐱 Catbreeds App
 
-# Getting Started
+Prueba técnica para desarrollador móvil en React Native. Esta aplicación permite explorar distintas razas de gatos utilizando la API pública de [TheCatAPI](https://thecatapi.com/), mostrando información clave como origen, inteligencia, adaptabilidad y esperanza de vida.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 🚀 Características
 
-## Step 1: Start Metro
+- ✅ Consumo de API con autenticación mediante API Key.
+- ✅ Estructura basada en **Atomic Design**.
+- ✅ Navegación con `@react-navigation/native`.
+- ✅ Tipado completo con **TypeScript**.
+- ✅ Splash Screen animado con navegación automática.
+- ✅ Pantallas:
+  - `SplashScreen`: Logo + transición automática.
+  - `LandingScreen`: Listado de razas con filtro.
+  - `DetailScreen`: Detalle completo de cada raza.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 📂 Estructura del proyecto
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+```
+src/
+├── assets/          # Imágenes y recursos
+├── components/      # Atomic Design (atoms, molecules, organisms)
+├── constants/       # Colores, strings, tamaños
+├── hooks/           # Hooks personalizados
+├── navigation/      # Stack de navegación
+├── screens/         # Splash, Landing y Detail
+└── services/        # Llamado a la API
+```
 
-```sh
-# Using npm
-npm start
+## 🛠️ Tecnologías utilizadas
 
-# OR using Yarn
+- [Expo](https://expo.dev/)
+- [React Native](https://reactnative.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React Navigation](https://reactnavigation.org/)
+- [TheCatAPI](https://thecatapi.com/)
+
+## ▶️ Cómo correr el proyecto
+
+1. Clona el repositorio:
+
+```bash
+git clone https://github.com/Miguel22agudelo/catbreeds-app.git
+cd catbreeds-app
+```
+
+2. Instala dependencias:
+
+```bash
+yarn install
+```
+
+3. Ejecuta el proyecto:
+
+```bash
 yarn start
 ```
 
-## Step 2: Build and run your app
+4. Escanea el QR en tu celular con Expo Go o ejecuta en emulador.
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## 📸 Capturas (opcional)
 
-### Android
+_¡Aquí puedes agregar screenshots si el tiempo lo permite!_
 
-```sh
-# Using npm
-npm run android
+## 📝 Notas
 
-# OR using Yarn
-yarn android
-```
+- La clave API está protegida y se pasa por headers de forma segura.
+- El proyecto está optimizado para móviles (Android/iOS).
+- Pensado bajo principios de escalabilidad y legibilidad.
 
-### iOS
+## 🧑‍💻 Autor
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Desarrollado por [Miguel Ángel Agudelo](https://github.com/Miguel22agudelo) como parte del proceso técnico para Pragma.
