@@ -1,39 +1,71 @@
 # 🐱 Catbreeds App
 
-Prueba técnica para desarrollador móvil en React Native. Esta aplicación permite explorar distintas razas de gatos utilizando la API pública de [TheCatAPI](https://thecatapi.com/), mostrando información clave como origen, inteligencia, adaptabilidad y esperanza de vida.
+Prueba técnica para desarrollador móvil en React Native.  
+Esta aplicación permite explorar distintas razas de gatos utilizando la API pública de [TheCatAPI](https://thecatapi.com/), mostrando información como origen, inteligencia y esperanza de vida.
+
+---
 
 ## 🚀 Características
 
 - ✅ Consumo de API con autenticación mediante API Key.
-- ✅ Estructura basada en **Atomic Design**.
+- ✅ Estructura modular basada en principios de arquitectura limpia.
 - ✅ Navegación con `@react-navigation/native`.
 - ✅ Tipado completo con **TypeScript**.
-- ✅ Splash Screen animado con navegación automática.
+- ✅ AxiosAdapter para manejo limpio de HTTP.
 - ✅ Pantallas:
-  - `SplashScreen`: Logo + transición automática.
-  - `LandingScreen`: Listado de razas con filtro.
-  - `DetailScreen`: Detalle completo de cada raza.
+  - `LandingScreen`: Listado de razas con búsqueda y scroll infinito.
+  - `DetailScreen`: Detalle completo de cada raza (en desarrollo).
+  - `SplashScreen`: (pendiente si decides agregar animación).
+
+---
 
 ## 📂 Estructura del proyecto
 
 ```
-src/
-├── assets/          # Imágenes y recursos
-├── components/      # Atomic Design (atoms, molecules, organisms)
-├── constants/       # Colores, strings, tamaños
-├── hooks/           # Hooks personalizados
-├── navigation/      # Stack de navegación
-├── screens/         # Splash, Landing y Detail
-└── services/        # Llamado a la API
+/src
+├── api
+│   └── catService.ts             # Lógica para consumir TheCatAPI
+│
+├── config
+│   └── adapters
+│       ├── http.adapter.ts       # AxiosAdapter reutilizable
+│       └── catApiAdapter.ts      # Cliente configurado con API base
+│
+├── constants
+│   └── index.ts                  # API key y constantes globales
+│
+├── hooks
+│   └── useCatBreedsPaginated.ts # Hook de paginación, carga y búsqueda
+│
+├── components
+│   └── molecules
+│       ├── BreedCard.tsx         # Componente de tarjeta de raza
+│       └── SearchInput.tsx       # Input reutilizable
+│
+├── screens
+│   ├── LandingScreen.tsx         # Vista principal
+│   └── DetailScreen.tsx          # Vista de detalle (próximamente)
+│
+├── navigation
+│   └── RootNavigator.tsx         # Navegador principal de la app
+│
+├── types
+│   └── Breed.ts                  # Tipado de las razas
+│
+└── index.ts                      # Punto de entrada compartido (opcional)
 ```
+
+---
 
 ## 🛠️ Tecnologías utilizadas
 
-- [Expo](https://expo.dev/)
-- [React Native](https://reactnative.dev/)
+- [React Native (CLI)](https://reactnative.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Axios](https://axios-http.com/)
 - [React Navigation](https://reactnavigation.org/)
 - [TheCatAPI](https://thecatapi.com/)
+
+---
 
 ## ▶️ Cómo correr el proyecto
 
@@ -50,24 +82,37 @@ cd catbreeds-app
 yarn install
 ```
 
-3. Ejecuta el proyecto:
+3. Ejecuta el bundler:
 
 ```bash
-yarn start
+npx react-native start
 ```
 
-4. Escanea el QR en tu celular con Expo Go o ejecuta en emulador.
+4. En otra terminal, ejecuta la app en Android:
 
-## 📸 Capturas (opcional)
+```bash
+npx react-native run-android
+```
 
-_¡Aquí puedes agregar screenshots si el tiempo lo permite!_
+> Asegúrate de tener un emulador corriendo o tu dispositivo conectado con USB debugging.
 
-## 📝 Notas
+---
 
-- La clave API está protegida y se pasa por headers de forma segura.
-- El proyecto está optimizado para móviles (Android/iOS).
-- Pensado bajo principios de escalabilidad y legibilidad.
+## 📸 Capturas
+
+_Si tienes tiempo, agrega screenshots aquí para mostrar el diseño visual._
+
+---
+
+## 🔐 Notas
+
+- La clave API está centralizada en `src/constants` y se pasa por headers.
+- El proyecto está optimizado para dispositivos móviles (Android/iOS).
+- Pensado para ser fácilmente escalable y legible.
+
+---
 
 ## 🧑‍💻 Autor
 
-Desarrollado por [Miguel Ángel Agudelo](https://github.com/Miguel22agudelo) como parte del proceso técnico para Pragma.
+Desarrollado por [Miguel Ángel Agudelo](https://github.com/Miguel22agudelo)  
+como parte del proceso técnico para Pragma.
