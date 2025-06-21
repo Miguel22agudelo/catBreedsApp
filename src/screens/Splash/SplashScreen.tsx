@@ -11,7 +11,6 @@ const SplashScreen = () => {
     const navigation = useNavigation<NavigationProp>();
 
     useEffect(() => {
-        console.log('SplashScreen mounted');
         const timeout = setTimeout(() => {
             navigation.replace('Landing');
         }, 2500);

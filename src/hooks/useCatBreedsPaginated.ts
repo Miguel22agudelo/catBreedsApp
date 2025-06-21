@@ -13,7 +13,6 @@ export const useCatBreedsPaginated = () => {
         setLoading(true);
         try {
             const data = await getCatBreeds(page);
-            console.log('Fetched breeds:', data);
             const ids = new Set(breeds.map((b) => b.id));
             const unique = data.filter((b) => !ids.has(b.id));
             setBreeds((prev) => [...prev, ...unique]);

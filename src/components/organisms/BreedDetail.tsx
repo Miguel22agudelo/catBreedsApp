@@ -9,7 +9,6 @@ interface Props {
 }
 
 const BreedDetail = ({ breed }: Props) => {
-    console.log('BreedDetail component rendered with breed:', breed);
     return (
         <View style={styles.container}>
             {breed.image?.url && (
