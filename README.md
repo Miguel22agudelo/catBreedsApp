@@ -72,7 +72,7 @@ Esta aplicación permite explorar distintas razas de gatos utilizando la API pú
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/Miguel22agudelo/catbreeds-app.git
+git clone https://github.com/Miguel22agudelo/catBreedsApp.git
 cd catbreeds-app
 ```
 
@@ -98,9 +98,9 @@ npx react-native run-android
 
 ---
 
-## 📸 Capturas
+<!-- ## 📸 Capturas
 
-_Si tienes tiempo, agrega screenshots aquí para mostrar el diseño visual._
+_Si tienes tiempo, agrega screenshots aquí para mostrar el diseño visual._ -->
 
 ---
 
