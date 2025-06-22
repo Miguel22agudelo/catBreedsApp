@@ -122,7 +122,17 @@ _Si tienes tiempo, agrega screenshots aquí para mostrar el diseño visual._ -->
 
 ---
 
+## 📦 Descargar APK
+
+Puedes probar la app descargando el APK de la última versión desde la sección de releases:
+
+[⬇️ Descargar última versión](https://github.com/Miguel22agudelo/catBreedsApp/releases/latest)
+
+O directamente:
+
+[![Descargar APK](https://img.shields.io/badge/📲%20Download%20APK-blue?style=for-the-badge)](https://github.com/Miguel22agudelo/catBreedsApp/releases/latest/download/app-release.apk)
+
 ## 🧑‍💻 Autor
 
-Desarrollado por [Miguel Ángel Agudelo](https://github.com/Miguel22agudelo)  
+Desarrollado por [Miguel Ángel Agudelo Lopera](https://github.com/Miguel22agudelo)  
 como parte del proceso técnico para Pragma.
