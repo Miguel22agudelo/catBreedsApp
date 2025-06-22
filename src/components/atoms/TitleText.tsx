@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginTop: 20,
         fontFamily: 'System',
+        color: '#333',
     },
 });
 
