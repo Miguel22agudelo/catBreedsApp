@@ -1,6 +1,6 @@
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import React from 'react';
-import { StyleSheet, TextInput, View } from 'react-native';
+import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 
 interface Props {
     value: string;
@@ -8,7 +8,9 @@ interface Props {
     placeholder?: string;
 }
 
-const SearchInput = ({ value, onChangeText, placeholder = "Search breed..." }: Props) => {
+const SearchInput = ({ value, onChangeText, placeholder = 'Search breed...' }: Props) => {
+    const showClear = value.length > 0;
+
     return (
         <View style={styles.container}>
             <Ionicons name="search" size={18} color="#888" style={styles.icon} />
@@ -19,6 +21,11 @@ const SearchInput = ({ value, onChangeText, placeholder = "Search breed..." }: P
                 onChangeText={onChangeText}
                 placeholderTextColor="#aaa"
             />
+            {showClear && (
+                <TouchableOpacity onPress={() => onChangeText('')}>
+                    <Ionicons name="close-circle" size={20} color="#888" />
+                </TouchableOpacity>
+            )}
         </View>
     );
 };

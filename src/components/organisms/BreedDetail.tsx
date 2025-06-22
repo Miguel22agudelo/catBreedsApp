@@ -11,18 +11,25 @@ interface Props {
 const BreedDetail = ({ breed }: Props) => {
     return (
         <View style={styles.container}>
-            {breed.image?.url && (
+            {breed.image?.url ? (
                 <Image source={{ uri: breed.image.url }} style={styles.image} />
-            )}
-            <ScrollView style={styles.scrollContent}>
-                <BreedDescriptionBlock
-                    description={breed.description}
-                    origin={breed.origin}
-                    intelligence={breed.intelligence}
-                    adaptability={breed.adaptability}
-                    lifeSpan={breed.life_span}
+            ) : (
+                <Image
+                    source={require('../../assets/images/no-breed-image.png')}
+                    style={styles.image}
                 />
-            </ScrollView>
+            )}
+            <View style={styles.floatingContent}>
+                <ScrollView style={styles.scrollContent}>
+                    <BreedDescriptionBlock
+                        description={breed.description}
+                        origin={breed.origin}
+                        intelligence={breed.intelligence}
+                        adaptability={breed.adaptability}
+                        lifeSpan={breed.life_span}
+                    />
+                </ScrollView>
+            </View>
         </View>
     );
 };
@@ -32,12 +39,18 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
     },
+    floatingContent: {
+        flex: 1,
+        backgroundColor: '#fff',
+        borderTopLeftRadius: 24,
+        borderTopRightRadius: 24,
+        marginTop: -30,
+        paddingBottom: 32,
+    },
     image: {
         width: '100%',
-        height: screenHeight * 0.4,
+        height: screenHeight * 0.5,
         resizeMode: 'cover',
-        borderBottomLeftRadius: 24,
-        borderBottomRightRadius: 24,
     },
     scrollContent: {
         flex: 1,

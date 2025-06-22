@@ -14,6 +14,7 @@ const DetailScreen = () => {
     useLayoutEffect(() => {
         navigation.setOptions({
             title: breed.name,
+            headerTitleAlign: 'center',
         });
     }, [navigation, breed.name]);
 

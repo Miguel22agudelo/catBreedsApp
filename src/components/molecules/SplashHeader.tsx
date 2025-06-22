@@ -5,8 +5,8 @@ import TitleText from '../atoms/TitleText';
 
 const SplashHeader = () => (
     <View style={styles.container}>
-        <LogoImage />
         <TitleText />
+        <LogoImage />
     </View>
 );
 

@@ -9,14 +9,28 @@ interface Props {
 const BreedCard = ({ breed, onPress }: Props) => {
     return (
         <TouchableOpacity onPress={onPress} style={styles.card} activeOpacity={0.8}>
-            {breed.image?.url && (
-                <Image source={{ uri: breed.image.url }} style={styles.image} />
-            )}
-            <View style={styles.info}>
+            {/* Tittle */}
+            <View style={styles.headerRow}>
                 <Text style={styles.name}>{breed.name}</Text>
-                <Text style={styles.text}>🌍 Origen: {breed.origin}</Text>
-                <Text style={styles.text}>🧠 Inteligencia: {breed.intelligence}</Text>
-                <Text style={styles.more}>Ver más</Text>
+                <Text style={styles.more}>More...</Text>
+            </View>
+
+            {/* Image */}
+            {breed.image?.url ? (
+                <Image source={{ uri: breed.image.url }} style={styles.image} />
+            ) : (
+                <View style={styles.placeholder}>
+                    <Image
+                        source={require('../../assets/images/placeholder.png')}
+                        style={styles.placeholderImage}
+                    />
+                </View>
+            )}
+
+            {/* Info */}
+            <View style={styles.footerRow}>
+                <Text style={styles.text}>🌍 {breed.origin}</Text>
+                <Text style={styles.text}>🧠 {breed.intelligence}</Text>
             </View>
         </TouchableOpacity>
     );
@@ -24,7 +38,7 @@ const BreedCard = ({ breed, onPress }: Props) => {
 
 const styles = StyleSheet.create({
     card: {
-        width: '90%',
+        width: '95%',
         alignSelf: 'center',
         backgroundColor: '#ffffff',
         borderRadius: 16,
@@ -36,12 +50,40 @@ const styles = StyleSheet.create({
         elevation: 4,
         marginBottom: 16,
     },
+    headerRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: 16,
+        paddingTop: 12,
+    },
+    footerRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: 16,
+        paddingBottom: 12,
+        marginTop: 8,
+    },
     image: {
+        width: '94%',
+        aspectRatio: 3 / 2,
+        resizeMode: 'cover',
+        borderRadius: 16,
+        alignSelf: 'center',
+    },
+    placeholder: {
         width: '100%',
         aspectRatio: 3 / 2,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f3f3f3',
         borderTopLeftRadius: 16,
         borderTopRightRadius: 16,
-        resizeMode: 'cover',
+        overflow: 'hidden',
+    },
+    placeholderImage: {
+        width: '100%',
+        height: '100%',
+        resizeMode: 'contain',
     },
     info: {
         padding: 12,
@@ -58,7 +100,6 @@ const styles = StyleSheet.create({
         color: '#555',
     },
     more: {
-        marginTop: 10,
         fontWeight: 'bold',
         color: '#0077cc',
     },

@@ -9,6 +9,7 @@ Esta aplicación permite explorar distintas razas de gatos utilizando la API pú
 
 - ✅ Consumo de API con autenticación mediante API Key.
 - ✅ Estructura modular basada en principios de arquitectura limpia.
+- ✅ Organización de componentes siguiendo el enfoque de **Atomic Design**.
 - ✅ Navegación con `@react-navigation/native`.
 - ✅ Tipado completo con **TypeScript**.
 - ✅ AxiosAdapter para manejo limpio de HTTP.
@@ -23,36 +24,45 @@ Esta aplicación permite explorar distintas razas de gatos utilizando la API pú
 
 ```
 /src
-├── api
-│   └── catService.ts             # Lógica para consumir TheCatAPI
+├── assets
+│   └── images/                     # Imágenes utilizadas en la app
+│
+├── components                     # Componentes siguiendo Atomic Design
+│   ├── atoms/                      # Elementos básicos (próximamente si decides dividir más)
+│   ├── molecules/
+│   └── organisms/                  # Componentes más complejos (por si deseas seguir expandiendo)
 │
 ├── config
-│   └── adapters
-│       ├── http.adapter.ts       # AxiosAdapter reutilizable
-│       └── catApiAdapter.ts      # Cliente configurado con API base
+│   └── adapters/
+│       ├── http.adapter.ts         # Adaptador Axios genérico con tipado
+│       ├── catApiFetcher.ts        # Instancia Axios configurada con la API y headers
+│       └── catApiAdapter.ts        # Funciones específicas para cada endpoint
 │
 ├── constants
-│   └── index.ts                  # API key y constantes globales
+│   └── index.ts                    # Constantes como la API Key y la baseURL
 │
 ├── hooks
-│   └── useCatBreedsPaginated.ts # Hook de paginación, carga y búsqueda
-│
-├── components
-│   └── molecules
-│       ├── BreedCard.tsx         # Componente de tarjeta de raza
-│       └── SearchInput.tsx       # Input reutilizable
-│
-├── screens
-│   ├── LandingScreen.tsx         # Vista principal
-│   └── DetailScreen.tsx          # Vista de detalle (próximamente)
+│   ├── useCatBreedsPaginated.ts    # Hook para paginar razas de gatos
+│   └── useCatBreedSearch.ts        # Hook para buscar razas por nombre
 │
 ├── navigation
-│   └── RootNavigator.tsx         # Navegador principal de la app
+│   ├── NavigationStack.tsx         # Stack principal de navegación
+│   └── RootNavigator.tsx           # Contenedor de navegación raíz
 │
-├── types
-│   └── Breed.ts                  # Tipado de las razas
+├── screens
+│   ├── Detail/
+│   │   └── DetailScreen.tsx        # Vista de detalle de una raza
+│   ├── Landing/
+│   │   └── LandingScreen.tsx       # Pantalla principal con búsqueda y scroll
+│   └── Splash/
+│       └── SplashScreen.tsx        # Pantalla de bienvenida
 │
-└── index.ts                      # Punto de entrada compartido (opcional)
+├── services
+│   └── catService.ts               # Funciones para consumir la API de TheCatAPI
+│
+└── types
+    └── Breed.ts                    # Tipos y modelos (TypeScript) para razas de gatos
+
 ```
 
 ---

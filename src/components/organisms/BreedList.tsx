@@ -1,6 +1,7 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-native';
 import { useCatBreedsPaginated } from '../../hooks/useCatBreedsPaginated';
+import { useCatBreedSearch } from '../../hooks/useCatBreedSearch';
 import BreedCard from '../molecules/BreedCard';
 import SearchInput from '../molecules/SearchInput';
 
@@ -8,36 +9,51 @@ const BreedList = ({ onPress }: { onPress: (breed: any) => void }) => {
     const { breeds, loading, loadMoreBreeds } = useCatBreedsPaginated();
     const [search, setSearch] = useState('');
 
-    const filteredBreeds = useMemo(() => {
-        return breeds.filter((b) =>
-            b.name.toLowerCase().includes(search.toLowerCase())
-        );
-    }, [search, breeds]);
+    const {
+        searchResults,
+        loading: searchLoading,
+        search: triggerSearch,
+    } = useCatBreedSearch();
+
+    const isSearching = search.length > 0;
+    const dataToRender = isSearching ? searchResults : breeds;
+
+    const handleSearch = (text: string) => {
+        setSearch(text);
+        triggerSearch(text);
+    };
 
     return (
         <View style={{ flex: 1 }}>
-            <SearchInput value={search} onChangeText={setSearch} />
+            <SearchInput value={search} onChangeText={handleSearch} />
             <FlatList
-                data={filteredBreeds}
+                data={dataToRender}
                 keyExtractor={(item) => item.id}
                 renderItem={({ item }) => (
                     <BreedCard breed={item} onPress={() => onPress(item)} />
                 )}
                 onEndReached={() => {
-                    if (!search) {
+                    if (!isSearching) {
                         loadMoreBreeds();
                     }
                 }}
                 onEndReachedThreshold={0.3}
-                ListFooterComponent={loading ? <ActivityIndicator /> : null}
+                ListFooterComponent={
+                    (isSearching && searchLoading) || (!isSearching && loading)
+                        ? <ActivityIndicator />
+                        : null
+                }
                 contentContainerStyle={styles.list}
                 initialNumToRender={10}
                 maxToRenderPerBatch={5}
                 windowSize={10}
             />
-            {!loading && filteredBreeds.length === 0 && (
-                <Text style={styles.noResults}>No results found</Text>
+            {!loading && dataToRender.length === 0 && (
+                <View style={styles.noResultsContainer}>
+                    <Text style={styles.noResults}>No results found</Text>
+                </View>
             )}
+
         </View>
     );
 };
@@ -45,10 +61,16 @@ const BreedList = ({ onPress }: { onPress: (breed: any) => void }) => {
 const styles = StyleSheet.create({
     list: {
         paddingBottom: 20,
+        paddingTop: 10,
+    },
+    noResultsContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: 50,
     },
     noResults: {
         textAlign: 'center',
-        marginTop: 20,
         fontSize: 16,
         color: '#666',
     },

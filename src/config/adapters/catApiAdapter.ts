@@ -1,9 +1,9 @@
-import { AxiosAdapter } from './http.adapter';
-import { CAT_API_KEY, CAT_API_URL } from '../../constants';
+import { catApiFetcher } from './catApiFetcher';
 
-export const catApiFetcher = new AxiosAdapter({
-    baseURL: CAT_API_URL,
-    headers: {
-        'x-api-key': CAT_API_KEY,
+export const catApiAdapter = {
+    searchBreeds: async (query: string) => {
+        return await catApiFetcher.get(`/breeds/search?q=${query}`);
     },
-});
+
+    // Aquí podrías añadir más métodos como getBreedsPaginated, etc.
+};
