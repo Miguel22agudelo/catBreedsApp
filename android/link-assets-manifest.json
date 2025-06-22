@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Nunito-Italic-VariableFont_wght.ttf",
+      "sha1": "1ed03c3e8efd1dfb99567d274da89c07724ffdf4"
+    },
+    {
+      "path": "assets/fonts/Nunito-VariableFont_wght.ttf",
+      "sha1": "a031c129002aa44c4cd3b8b2c234cf9252476853"
+    }
+  ]
+}

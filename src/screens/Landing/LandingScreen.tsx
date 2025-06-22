@@ -1,20 +1,14 @@
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import React, { useLayoutEffect } from 'react';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import BreedList from '../../components/organisms/BreedList';
-import { RootStackParamList } from '../../navigation/NavigationStack';
+import { RootStackParamList } from '../../navigation/RootNavigator';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'Landing'>;
 
 const LandingScreen = () => {
     const navigation = useNavigation<NavigationProp>();
-    useLayoutEffect(() => {
-        navigation.setOptions({
-            headerTitleAlign: 'center',
-            headerShadowVisible: false,
-        });
-    }, [navigation]);
 
     return (
         <View style={styles.container}>

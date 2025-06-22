@@ -4,8 +4,9 @@ import { useCatBreedsPaginated } from '../../hooks/useCatBreedsPaginated';
 import { useCatBreedSearch } from '../../hooks/useCatBreedSearch';
 import BreedCard from '../molecules/BreedCard';
 import SearchInput from '../molecules/SearchInput';
+import { Breed } from '../../types/Breed';
 
-const BreedList = ({ onPress }: { onPress: (breed: any) => void }) => {
+const BreedList = ({ onPress }: { onPress: (breed: Breed) => void }) => {
     const { breeds, loading, loadMoreBreeds } = useCatBreedsPaginated();
     const [search, setSearch] = useState('');
 
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        paddingTop: 50,
+        paddingTop: 30,
     },
     noResults: {
         textAlign: 'center',

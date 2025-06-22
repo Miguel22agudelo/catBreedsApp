@@ -3,7 +3,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React, { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import SplashHeader from '../../components/molecules/SplashHeader';
-import { RootStackParamList } from '../../navigation/NavigationStack';
+import { RootStackParamList } from '../../navigation/RootNavigator';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'Splash'>;
 

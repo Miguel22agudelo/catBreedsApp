@@ -2,7 +2,7 @@ import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import React, { useLayoutEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import BreedDetail from '../../components/organisms/BreedDetail';
-import { RootStackParamList } from '../../navigation/NavigationStack';
+import { RootStackParamList } from '../../navigation/RootNavigator';
 
 type DetailScreenRouteProp = RouteProp<RootStackParamList, 'Detail'>;
 

@@ -1,24 +1,18 @@
 import React from 'react';
-import { Dimensions, Image, ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import { Breed } from '../../types/Breed';
 import BreedDescriptionBlock from '../molecules/BreedDescriptionBlock';
-
-const screenHeight = Dimensions.get('window').height;
+import { BreedImage } from '../atoms/BreedImage';
 
 interface Props {
-    breed: any;
+    breed: Breed;
 }
 
 const BreedDetail = ({ breed }: Props) => {
     return (
         <View style={styles.container}>
-            {breed.image?.url ? (
-                <Image source={{ uri: breed.image.url }} style={styles.image} />
-            ) : (
-                <Image
-                    source={require('../../assets/images/no-breed-image.png')}
-                    style={styles.image}
-                />
-            )}
+            <BreedImage uri={breed.image?.url} name={breed.name} />
+
             <View style={styles.floatingContent}>
                 <ScrollView style={styles.scrollContent}>
                     <BreedDescriptionBlock
@@ -46,11 +40,6 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 24,
         marginTop: -30,
         paddingBottom: 32,
-    },
-    image: {
-        width: '100%',
-        height: screenHeight * 0.5,
-        resizeMode: 'cover',
     },
     scrollContent: {
         flex: 1,
