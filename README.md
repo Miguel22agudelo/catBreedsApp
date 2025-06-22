@@ -129,7 +129,7 @@ Puedes probar la app descargando el APK de la última versión desde la sección
 
 O directamente:
 
-[![Descargar APK](https://img.shields.io/badge/📲%20Download%20APK-blue?style=for-the-badge)](https://github.com/Miguel22agudelo/catBreedsApp/releases/latest/download/app-release.apk)
+[![Descargar APK](https://img.shields.io/badge/📲%20Download%20APK-blue?style=for-the-badge)](https://github.com/Miguel22agudelo/catBreedsApp/releases/latest/download/catbreeds-v1.1.1.apk)
 
 ## 🧑‍💻 Autor
 
