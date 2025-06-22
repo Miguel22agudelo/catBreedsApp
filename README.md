@@ -15,8 +15,8 @@ Esta aplicación permite explorar distintas razas de gatos utilizando la API pú
 - ✅ AxiosAdapter para manejo limpio de HTTP.
 - ✅ Pantallas:
   - `LandingScreen`: Listado de razas con búsqueda y scroll infinito.
-  - `DetailScreen`: Detalle completo de cada raza (en desarrollo).
-  - `SplashScreen`: (pendiente si decides agregar animación).
+  - `DetailScreen`: Detalle completo de cada raza.
+  - `SplashScreen`: Pantalla de presentación de la App.
 
 ---
 
@@ -28,9 +28,9 @@ Esta aplicación permite explorar distintas razas de gatos utilizando la API pú
 │   └── images/                     # Imágenes utilizadas en la app
 │
 ├── components                     # Componentes siguiendo Atomic Design
-│   ├── atoms/                      # Elementos básicos (próximamente si decides dividir más)
+│   ├── atoms/                      # Elementos básicos
 │   ├── molecules/
-│   └── organisms/                  # Componentes más complejos (por si deseas seguir expandiendo)
+│   └── organisms/                  # Componentes más complejos
 │
 ├── config
 │   └── adapters/
