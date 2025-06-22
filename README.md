@@ -46,7 +46,6 @@ Esta aplicación permite explorar distintas razas de gatos utilizando la API pú
 │   └── useCatBreedSearch.ts        # Hook para buscar razas por nombre
 │
 ├── navigation
-│   ├── NavigationStack.tsx         # Stack principal de navegación
 │   └── RootNavigator.tsx           # Contenedor de navegación raíz
 │
 ├── screens
