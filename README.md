@@ -35,8 +35,7 @@ Esta aplicación permite explorar distintas razas de gatos utilizando la API pú
 ├── config
 │   └── adapters/
 │       ├── http.adapter.ts         # Adaptador Axios genérico con tipado
-│       ├── catApiFetcher.ts        # Instancia Axios configurada con la API y headers
-│       └── catApiAdapter.ts        # Funciones específicas para cada endpoint
+│       └──catApiFetcher.ts        # Instancia Axios configurada con la API y headers
 │
 ├── constants
 │   └── index.ts                    # Constantes como la API Key y la baseURL
@@ -106,12 +105,6 @@ npx react-native run-android
 > Asegúrate de tener un emulador corriendo o tu dispositivo conectado con USB debugging.
 
 ---
-
-<!-- ## 📸 Capturas
-
-_Si tienes tiempo, agrega screenshots aquí para mostrar el diseño visual._ -->
-
-<!-- --- -->
 
 ## 🔐 Notas
 
